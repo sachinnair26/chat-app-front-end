@@ -1,0 +1,15 @@
+
+.login-wrapper{
+   height:100vh;
+    background-color: rgb(240, 241, 241);
+    margin:auto;
+    flex-grow: inherit;
+    display:flex;
+    flex-direction: column;
+}
+.credential-wrapper{
+    height:50%;
+    width: 40%;
+    margin:auto;
+    box-shadow: 2px 1px 20px 1px rgb(124, 120, 120);    
+}
