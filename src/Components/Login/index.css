@@ -11,5 +11,20 @@
     height:50%;
     width: 40%;
     margin:auto;
-    box-shadow: 2px 1px 20px 1px rgb(124, 120, 120);    
+    box-shadow: 2px 1px 10px 1px rgb(124, 120, 120);    
 }
+.credential-wrapper:hover{
+    box-shadow: 2px 1px 20px 1px rgb(124, 120, 120);    
+
+}
+#partitioned {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    width: 150px;
+    font-size: 12px;
+    text-align:center;
+    padding : 5px;
+    margin-left:10px;
+  }
