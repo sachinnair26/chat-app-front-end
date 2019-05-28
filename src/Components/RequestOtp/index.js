@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import './index.css';
-function Login () {
+function RequestOtp () {
     const [number,set_number] =useState(0)
     return (
         <div className='login-wrapper'>
@@ -35,4 +35,4 @@ function requestOtp(number){
           
       })
 }
-export default Login;
+export default RequestOtp;
