@@ -7,10 +7,8 @@ export default function Routes(){
     return (
         <Router>
             <Switch>
-                <Route path='/sendotp' component={RequestOtp}/>
-                <Route path='/' component={Home}/>
-                {/* <Route path='/verifyotp' component={}/> */}
-                {/* <Route path='/home' component={}/> */}
+                <Route path='/home' exact component={Home}/>
+                <Route path='/'  component={RequestOtp}/>
             </Switch>
         </Router>
     )

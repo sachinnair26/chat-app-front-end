@@ -1,15 +1,16 @@
 
 .login-wrapper{
    height:100vh;
-    background-color: rgb(240, 241, 241);
+   background: url('../../mainScreen.png') ;
+   background-size: cover;
     margin:auto;
     flex-grow: inherit;
     display:flex;
     flex-direction: column;
 }
 .credential-wrapper{
-    height:40%;
-    width: 40%;
+    height:80%;
+    width: 25%;
     margin:auto;
     display: flex;
     flex-direction: column;
@@ -27,14 +28,21 @@
     box-shadow: 2px 1px 20px 1px rgb(124, 120, 120);    
 
 }
+h1 {
+    color:#fff;
+}
 #partitioned {
     border: 0;
     outline: 0;
     background: transparent;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #fff;
     width: 150px;
     font-size: 12px;
     text-align:center;
     padding : 5px;
     margin-left:10px;
+  }
+
+  #partitioned::placeholder{
+      color:#fff;
   }
