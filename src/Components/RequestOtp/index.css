@@ -28,7 +28,7 @@
     box-shadow: 2px 1px 20px 1px rgb(124, 120, 120);    
 
 }
-h1 {
+.login-wrapper h1 {
     color:#fff;
 }
 #partitioned {
@@ -36,13 +36,32 @@ h1 {
     outline: 0;
     background: transparent;
     border-bottom: 2px solid #fff;
-    width: 150px;
-    font-size: 12px;
+    width: 80%;
+    font-size: 15px;
     text-align:center;
     padding : 5px;
-    margin-left:10px;
   }
 
   #partitioned::placeholder{
       color:#fff;
   }
+
+  .new-test {
+      transform: rotateY(180deg);
+      transition: transform 2s;
+      
+  }
+
+  #sign-in-button {
+      padding:10px;
+      width:140px;
+      border-radius: 10px;
+      background-image: repeating-radial-gradient(#203b,#c680bb,#8085c6);
+      color:#fff;
+      border: none;
+      
+      }
+
+      #sign-in-button:hover {
+          cursor: pointer;
+      }

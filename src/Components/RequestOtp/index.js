@@ -29,7 +29,7 @@ function RequestOtp({ ConfirmOtpAction, history }) {
     }
     return (
         <div className='login-wrapper'>
-            <div className='credential-wrapper'>
+            <div className='credential-wrapper '>
                 <h1>My Crappy ChatApp</h1>
                 <div id='recaptcha-container'></div>
                 {set_input ?
@@ -45,7 +45,7 @@ function RequestOtp({ ConfirmOtpAction, history }) {
                     )
                     :
                     (
-                        <span className='input-button'>
+                        <span className="input-button">
                             <input id="partitioned" type="text" 
                             placeholder='Phone' 
                             onChange={(e) => set_number(e.target.value)} />
