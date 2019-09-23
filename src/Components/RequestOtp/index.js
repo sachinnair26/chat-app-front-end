@@ -4,12 +4,13 @@ import './index.css';
 import { connect } from 'react-redux';
 import firebase from 'firebase';
 import SetUserAction from '../Action/SetUserAction';
-function RequestOtp({ ConfirmOtpAction, history }) {
-
+function RequestOtp({SetUserAction,history}) {
+    
     const [number, set_number] = useState(0)
     const [set_input, changeInput] = useState(false)
     const [verify_otp,set_verifyotp] =useState(0)
     const onSendOtp = (number) => {
+        
         var recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
             'size': 'invisible',
 
@@ -22,10 +23,29 @@ function RequestOtp({ ConfirmOtpAction, history }) {
     const onVerifyOtp = (otp) =>{
         window.confirm_result.confirm(otp).then(result =>{
             var user = result.user;
-            SetUserAction(user)
-            history.push('/home')
+            var send_data = {
+                email:user.email,
+                display_name:user.displayName,
+                phone_number:user.phoneNumber,
+                photo_url:user.photoURL,
+                _id :user.uid,
+                
+
+            }
+            sendUserData(send_data).then(point =>{
+                SetUserAction(send_data)
+                history.push('/home')
+            })
         })
         
+    }
+    const sendUserData = (data) =>{
+        return fetch('http://127.0.0.2:8080/saveuser',{
+            method:'POST',
+            mode:'no-cors',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(data)
+        })
     }
     return (
         <div className='login-wrapper'>

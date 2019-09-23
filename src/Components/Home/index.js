@@ -7,7 +7,14 @@ import './index.css';
             <div className='home-header'>
                 My Crappy Chat App 
             </div>
-            
+            <div className='home-secondary'>
+                <div className='contacts-sidebar'>
+                    
+                </div>
+                <div className='chatbox'>
+
+                </div>
+            </div>
         </div>
     )
 }
