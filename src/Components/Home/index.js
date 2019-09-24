@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import Contacts from '../Contacts';
 
  function Home(){
     return(
@@ -9,7 +10,7 @@ import './index.css';
             </div>
             <div className='home-secondary'>
                 <div className='contacts-sidebar'>
-                    
+                    <Contacts/> 
                 </div>
                 <div className='chatbox'>
 

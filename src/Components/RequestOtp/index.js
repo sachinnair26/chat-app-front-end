@@ -4,6 +4,7 @@ import './index.css';
 import { connect } from 'react-redux';
 import firebase from 'firebase';
 import SetUserAction from '../Action/SetUserAction';
+import {BaseUrl} from '../../constants';
 function RequestOtp({SetUserAction,history}) {
     
     const [number, set_number] = useState(0)
@@ -29,6 +30,7 @@ function RequestOtp({SetUserAction,history}) {
                 phone_number:user.phoneNumber,
                 photo_url:user.photoURL,
                 _id :user.uid,
+                user_name:"sachinanir26"
                 
 
             }
@@ -40,7 +42,7 @@ function RequestOtp({SetUserAction,history}) {
         
     }
     const sendUserData = (data) =>{
-        return fetch('http://127.0.0.2:8080/saveuser',{
+        return fetch(`${BaseUrl}/saveuser`,{
             method:'POST',
             mode:'no-cors',
             headers:{'Content-Type': 'application/json'},
