@@ -1,17 +1,17 @@
 import React,{useState,useEffect} from 'react';
+import {connect} from 'react-redux';
 import './index.css';
 import GetContactsAction from '../Action/GetContactsAction';
-import {connect} from 'react-redux';
+import SelectContactAction from '../Action/SelectContactAction';
 
-function Contacts({contacts,GetContactsAction}){
+function Contacts({contacts,GetContactsAction,SelectContactAction}){
  useEffect(()=>{
      GetContactsAction()
  },[])
- console.log(contacts);
  
     return(
         <div>
-            {Object.keys(contacts).map(contact =><div className='single-contact'>
+            {Object.keys(contacts).map(contact =><div className='single-contact' onClick={()=>SelectContactAction(contact)}>
             {contact}
             </div>)}
             
@@ -22,6 +22,7 @@ const mapStateToProps = state =>({
     contacts:state.GetContactsReducer
 })
 const mapActionToProps ={
-    GetContactsAction:GetContactsAction
+    GetContactsAction:GetContactsAction,
+    SelectContactAction:SelectContactAction
 }
 export default connect(mapStateToProps,mapActionToProps)(Contacts);

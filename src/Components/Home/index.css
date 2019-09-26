@@ -19,11 +19,11 @@
 }
 .home-secondary {
     width:100%;
-    height: 100%;
-    background-color: firebrick;
+    height: 90%;
+    display: flex;
 }
 .contacts-sidebar {
     width:30%;
-    height: 100%;
+    flex-grow: 1;
     background-color: aliceblue;
 }

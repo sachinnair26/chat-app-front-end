@@ -1,8 +1,27 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './index.css';
 import Contacts from '../Contacts';
-
- function Home(){
+import ChatBox from '../ChatBox';
+import io from 'socket.io-client';
+const socket = io('http://127.0.0.2:3001')  
+function Home(){
+    useEffect(()=>{
+       sendthis()
+    })
+        
+   const sendthis = () =>{
+       
+              
+        socket.on('connect',(sock)=>{
+            console.log("here");
+            
+        })
+        socket.on('name',(vick)=>{
+            console.log(vick);
+            
+        })
+    }
+    
     return(
         <div className='home-main'>
             <div className='home-header'>
@@ -12,9 +31,8 @@ import Contacts from '../Contacts';
                 <div className='contacts-sidebar'>
                     <Contacts/> 
                 </div>
-                <div className='chatbox'>
-
-                </div>
+                    <ChatBox/>
+                    <button onClick={sendthis}>tim</button>
             </div>
         </div>
     )
