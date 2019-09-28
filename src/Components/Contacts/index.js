@@ -11,7 +11,7 @@ function Contacts({contacts,GetContactsAction,SelectContactAction}){
  
     return(
         <div>
-            {Object.keys(contacts).map(contact =><div className='single-contact' onClick={()=>SelectContactAction(contact)}>
+            {Object.keys(contacts).map(contact =><div className='single-contact' key={contact} onClick={()=>SelectContactAction(contact)}>
             {contact}
             </div>)}
             

@@ -3,25 +3,9 @@ import './index.css';
 import Contacts from '../Contacts';
 import ChatBox from '../ChatBox';
 import io from 'socket.io-client';
-const socket = io('http://127.0.0.2:3001')  
+export const socket = io('http://127.0.0.2:3001',{transports:['polling']})  
+
 function Home(){
-    useEffect(()=>{
-       sendthis()
-    })
-        
-   const sendthis = () =>{
-       
-              
-        socket.on('connect',(sock)=>{
-            console.log("here");
-            
-        })
-        socket.on('name',(vick)=>{
-            console.log(vick);
-            
-        })
-    }
-    
     return(
         <div className='home-main'>
             <div className='home-header'>
@@ -32,7 +16,6 @@ function Home(){
                     <Contacts/> 
                 </div>
                     <ChatBox/>
-                    <button onClick={sendthis}>tim</button>
             </div>
         </div>
     )
