@@ -10,7 +10,6 @@ function Contacts({contacts,GetContactsAction,SelectContactAction}){
     useEffect(()=>{
         GetContactsAction()
         socket.on('save-contact',function(die){
-            console.log("saw",die);
             
         })
         socket.on('search-result',function(val){

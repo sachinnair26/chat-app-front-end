@@ -1,18 +1,32 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef,use } from 'react'
 import { connect } from 'react-redux';
 import './index.css';
 import { socket } from '../Home';
 function ChatBox({ selected_contact, contacts }) {
     const [message, update_message] = useState('')
+    const [scroll_val,changeScroll] = useState(0)
     const new_ref = useRef()
     useEffect(() => {
         new_ref.current.scrollTop = new_ref.current.scrollHeight
-    })
+    },[selected_contact])
+   useEffect(()=>{
+    const handleEvent =(listener) =>{
+        
+        if(new_ref.current.scrollTop <= 0){
+            
+            console.log("hate");
+        }
+    }
 
+       new_ref.current.addEventListener('scroll',handleEvent)
+
+   })
+   
+  
     const sendChat = () => {
         socket.emit("message", { contact: selected_contact, message: message, user: 'sachinnair26' })
     }
-
+   
     return (
 
         <div className='chat-box-wrapper'>
