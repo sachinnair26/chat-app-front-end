@@ -7,6 +7,8 @@
 }
 .message-pane{
  flex-grow: 1;
+ display: flex;
+ flex-direction: row;
 }
 
 .input-bar {
@@ -15,4 +17,24 @@
 .input-and-button{
     justify-content: space-around;
     display: flex;
+}
+.message-pane{
+    flex-grow: 1;
+    display: flex;
+    overflow-y: scroll;
+}
+.messages-drawer {
+    width:100%;
+    flex-grow: 1;
+}
+.reciver{
+    background-color: aquamarine;
+    width: 100%;
+    text-align: left;
+    height: 1000px;
+}
+.sender{
+    background-color: red;
+    width: 100%;
+    text-align: right;
 }
