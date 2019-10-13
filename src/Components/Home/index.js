@@ -8,7 +8,7 @@ export const socket = io('http://127.0.0.2:3001',{transports:['polling','websock
 function Home(){
     useEffect(()=>{
         socket.emit('user-name',{user_name:'sachinnair26'})
-    })
+    },[])
     return(
         <div className='home-main'>
             <div className='home-header'>
