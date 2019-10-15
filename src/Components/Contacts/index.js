@@ -9,7 +9,6 @@ function Contacts({contacts,GetContactsAction,SelectContactAction}){
     const [search_result,set_search_result] = useState([])
     useEffect(()=>{
         socket.on('save-contact',function(die){
-            
             GetContactsAction(die)
         })
     })

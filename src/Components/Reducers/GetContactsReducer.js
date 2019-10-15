@@ -3,7 +3,6 @@ import {GET_CONTACTS,UPDATE_MESSAGES} from '../ActionCreators';
 const initialState ={
 }
 export default function GetContactsReducer(state=initialState,action){
-    
     switch(action.type){
         case GET_CONTACTS:
             var cont = action.contacts
@@ -12,11 +11,15 @@ export default function GetContactsReducer(state=initialState,action){
             }
         case UPDATE_MESSAGES:
             var tim = {}
-            tim[action.updated_mesg.name] = [...state[action.updated_mesg['name']]]
-            action.updated_mesg[action.updated_mesg.name].map(tis =>{
-                tim[action.updated_mesg.name].push(tis)
-            })
-            return {...state,...tim}
+            var name = action.updated_mesg.name;
+            var mesg = action.updated_mesg[name].mesg
+            tim[name] = {}
+            tim[name] = {...state[name]}
+            mesg.map(ish =>{
+                tim[name].mesg.push(ish)
+            })            
+           
+            return {...tim,...state}
         default:
             return state
     }

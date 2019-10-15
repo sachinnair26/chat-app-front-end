@@ -16,8 +16,6 @@ function ChatBox({ selected_contact, contacts,GetContactsAction,UpdateMessages }
         if (avoid_born) {
             const handleEvent = (listener) => {
                 if (new_ref.current.scrollTop <= 0) {
-                    console.log("hega");
-                    
                     socket.emit('fetch-more', { name: 'sachinnair26', contact: selected_contact, offset: 1, limit: 1 })
                 }
             }
@@ -29,7 +27,8 @@ function ChatBox({ selected_contact, contacts,GetContactsAction,UpdateMessages }
     }, [selected_contact])
     useEffect(()=>{
         socket.on('more-fetched',function(tin){
-            UpdateMessages(tin.contacts)
+
+            UpdateMessages(tin)
         })
     },[])
 
@@ -44,7 +43,7 @@ function ChatBox({ selected_contact, contacts,GetContactsAction,UpdateMessages }
                 {selected_contact !== "" ?
                     <div className='messages-drawer'>
                         {
-                            contacts[selected_contact].map(chat =>
+                            contacts[selected_contact].mesg.map(chat =>
 
                                 (chat.reciver === selected_contact ?
                                     <div className='reciver' key={chat._id}>
