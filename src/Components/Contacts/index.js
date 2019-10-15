@@ -1,17 +1,20 @@
 import React,{useState,useEffect} from 'react';
 import {connect} from 'react-redux';
 import './index.css';
-import GetContactsAction from '../Action/GetContactsAction';
+import {GetContactsAction} from '../Action/GetContactsAction';
 import SelectContactAction from '../Action/SelectContactAction';
 import {socket} from '../Home';
 function Contacts({contacts,GetContactsAction,SelectContactAction}){
     
     const [search_result,set_search_result] = useState([])
     useEffect(()=>{
-        GetContactsAction()
         socket.on('save-contact',function(die){
             
+            GetContactsAction(die)
         })
+    })
+    useEffect(()=>{
+        
         socket.on('search-result',function(val){
             set_search_result(val)
             
