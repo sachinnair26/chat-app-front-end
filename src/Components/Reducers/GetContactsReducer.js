@@ -3,6 +3,8 @@ import {GET_CONTACTS,UPDATE_MESSAGES} from '../ActionCreators';
 const initialState ={
 }
 export default function GetContactsReducer(state=initialState,action){
+    console.log(action);
+    
     switch(action.type){
         case GET_CONTACTS:
             var cont = action.contacts

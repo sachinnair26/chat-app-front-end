@@ -44,15 +44,28 @@ function ChatBox({ selected_contact, contacts,GetContactsAction,UpdateMessages }
                     <div className='messages-drawer'>
                         {
                             contacts[selected_contact].mesg.map(chat =>
-
-                                (chat.reciver === selected_contact ?
-                                    <div className='reciver' key={chat._id}>
+                              
+                               (chat.reciver === selected_contact ?
+                                    <div className='reciver' >
+                                        <div className='single-mesg-reciver'>
                                         {chat.message}
-                                        {new Date(chat.timestamp).toString()}
+                                        <br/>
+                                        <span className='date-and-time'>
+
+                                        {new Date(chat.timestamp).toString().slice(0,16)}
+                                        </span>
+                                        </div>
                                     </div>
                                     :
                                     <div className='sender'>
+                                    <div className='single-mesg-sender'>
                                         {chat.message}
+                                        <br/>
+                                        <span className='date-and-time'>
+
+                                        {new Date(chat.timestamp).toString().slice(0,16)}
+                                        </span>
+                                        </div>
                                     </div>)
                             )
                         }

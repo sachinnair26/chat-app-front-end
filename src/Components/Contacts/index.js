@@ -9,6 +9,9 @@ function Contacts({contacts,GetContactsAction,SelectContactAction}){
     const [search_result,set_search_result] = useState([])
     useEffect(()=>{
         socket.on('save-contact',function(die){
+        
+                    console.log(die);
+                    
             GetContactsAction(die)
         })
     })
@@ -26,8 +29,18 @@ function Contacts({contacts,GetContactsAction,SelectContactAction}){
             <input onChange={(e)=>{e.target.value.length >0 ? socket.emit('contact-search',e.target.value):set_search_result([])}}/> 
             <div className='search-param'>{search_result.length >0 ? search_result.map(res =>(<div>{res}</div>)):null}</div>
         </div>
-            {Object.keys(contacts).map(contact =><div className='single-contact' key={contact} onClick={()=>SelectContactAction(contact)}>
+            {Object.keys(contacts).map(contact =>
+            <div className='single-contact' 
+            key={contact} onClick={()=>SelectContactAction(contact)}>
+            <div className='profile-pic-div'></div>
+            <div>
             {contact}
+            <br></br>
+            <div className='initial-mesg-contact'>
+            {Array.isArray(contacts[contact].mesg) ? contacts[contact].mesg[0].message : contacts[contact].mesg[0].mesg }
+            
+            </div>
+            </div>
             </div>)}
             
         </div>

@@ -25,5 +25,6 @@
 .contacts-sidebar {
     width:30%;
     flex-grow: 1;
-    background-color: aliceblue;
+    background-color: rgb(37, 105, 165);
+        
 }

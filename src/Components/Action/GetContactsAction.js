@@ -5,14 +5,10 @@ export function GetContactsAction(die){
     
         return (dispatch,getState) =>{
 
-                var contacts = {}
-                    var mesg_size = die.mesg_size
-                    var mesg = die.mesg
-                    contacts[die.name] = {mesg,mesg_size}
                 
                 dispatch({
                     type:GET_CONTACTS,
-                    contacts:contacts
+                    contacts:die
                 
             })
                
@@ -20,7 +16,6 @@ export function GetContactsAction(die){
 }
 
 export function UpdateMessages(data){
-    
     return (dispatch,getState) =>{
         var contacts = {}
         var mesg = data.mesg
